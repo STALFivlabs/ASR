@@ -2,7 +2,6 @@ from Feature_Extract_LPC import lpc
 from Feature_Match_LBG import lbg_codebook
 from Feature_Match_LBG import EuclideanDistance
 from training import train
-import pickle
 
 import numpy as np
 from scipy.io.wavfile import read        
@@ -15,10 +14,8 @@ def closestUser(features, codebooks):
         if Distance < minDistance:
             minDistance = Distance
             speaker = name
-    if minDistance > 1.8:
-        return 'Nobody'
-    else:
-        return speaker
+
+    return speaker
 
 
 
