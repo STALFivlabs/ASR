@@ -26,9 +26,9 @@ def lbg_codebook(fvs, M):
   """
   
   #INITIALIZATION
-  centroids = 1
+  no_centroids = 1
   centroid_coord = np.mean(fvs, axis = 0) #Centroid of features
-  r = centroids   #number of rows in codebook (initially)
+  r = no_centroids   #number of rows in codebook (initially)
   c = len(centroid_coord)   #number of columns in codebook (initially)
   codebook = np.empty((r,c))  #codebook created
   codebook[0] = centroid_coord #first and only codevector will be the centroid of the given features
@@ -36,8 +36,9 @@ def lbg_codebook(fvs, M):
   e = 0.01
   distortion = 1
   
-  #DOUBLING THE CODEBOOK according to the formula y(n)+ = y(n)*(1+e) , y(n)- = y(n)*(1-e)
+  
   while no_centroids < M: 
+    #DOUBLING THE CODEBOOK according to the formula y(n)+ = y(n)*(1+e) , y(n)- = y(n)*(1-e)
     newcodebook = np.empty((2*r, c)) #Creating a temporary codebook that is to be updated
 
     for i in range(no_centroids):
