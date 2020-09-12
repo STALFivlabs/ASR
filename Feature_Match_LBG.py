@@ -55,11 +55,11 @@ def lbg_codebook(fvs, M):
     while np.abs(distortion) > e: 
       #NEAREST NEIGHBOUR SEARCH
       previousDistance = np.mean(Distance)
-      nearestcodebookID = np.argmin(Distance,axis = 1)  #Contains the indices of the closest codebook for each feature
+      nearestcentroidID = np.argmin(Distance,axis = 1)  #Contains the indices of the closest centroid for each feature
  
       #SET NEW CENTROID TO THE CENTROID OF ALL FEATURES CLOSE TO CENTROID i
       for i in range(no_centroids):
-        codebook[i] = np.mean(fvs[np.where(nearestcodebookID == i)], axis = 0)
+        codebook[i] = np.mean(fvs[np.where(nearestcentroidID == i)], axis = 0)
  
       no_codebook = np.nan_to_num(codebook) #Replace all non-number values with 0
       
