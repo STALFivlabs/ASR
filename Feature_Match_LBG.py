@@ -36,7 +36,6 @@ def lbg_codebook(fvs, M):
   e = 0.01
   distortion = 1
   
-  
   while no_centroids < M: 
     #DOUBLING THE CODEBOOK according to the formula y(n)+ = y(n)*(1+e) , y(n)- = y(n)*(1-e)
     newcodebook = np.empty((2*r, c)) #Creating a temporary codebook that is to be updated
@@ -47,7 +46,7 @@ def lbg_codebook(fvs, M):
 
 
     codebook = newcodebook #codebook updated
-    r = np.shape(codebook)[0] #updating the value of centroid // again, the number of centroids = number of codevectors
+    r = np.shape(codebook)[0] #updating the value of centroid // again, the number of centroids = number of codewords
     no_centroids = r #Again, the number of centroids is the number of rows
   
     Distance = EuclideanDistance(fvs, codebook) #Distance Matrix
@@ -55,7 +54,7 @@ def lbg_codebook(fvs, M):
     while np.abs(distortion) > e: 
       #NEAREST NEIGHBOUR SEARCH
       previousDistance = np.mean(Distance)
-      nearestcentroidID = np.argmin(Distance,axis = 1)  #Contains the indices of the closest centroid for each feature
+      nearestcentroidID = np.argmin(Distance,axis = 1)  #Contains the indices of the closest codeword for each feature
  
       #SET NEW CENTROID TO THE CENTROID OF ALL FEATURES CLOSE TO CENTROID i
       for i in range(no_centroids):

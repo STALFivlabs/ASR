@@ -1,4 +1,5 @@
 #training function for ASR
+from Feature_Extract_LPCC import lpcc
 from Feature_Extract_LPC import lpc
 from Feature_Match_LBG import lbg_codebook
 
@@ -16,7 +17,7 @@ def train(no_filtbank, orderLPC, name, no_centroids, model_type):
         coeff = lpc(s, fs, orderLPC)
     elif(model_type=='lpcc'):
         lpc_coeff = lpc(s, fs, orderLPC)
-        coeff = lpcc(lpc_coeff)
+        coeff = lpcc(s, fs, lpc_coeff.T, orderLPC)
     else:
         print("Invalid model type! Model type should be 'lpcc' or 'lpc'.")
         exit()

@@ -1,4 +1,5 @@
 from Feature_Extract_LPC import lpc
+from Feature_Extract_LPCC import lpcc
 from Feature_Match_LBG import lbg_codebook
 from Feature_Match_LBG import EuclideanDistance
 from training import train
@@ -32,7 +33,6 @@ codebooks = {}
 print("TRAINING\n")
 for name in names:
     codebooks[name] = train(no_filtbank, orderLPC, name, 2*len(names), 'lpc')
-print("End of training\n")
 
 #COMPARISON
 print("COMPARISON\n")
@@ -45,6 +45,7 @@ for name in names:
     print ('Now ', name+'\'s test features are being tested')
     (fs,s) = read(directory + fname)
     lpc_coeff = lpc(s, fs, orderLPC)
+    lpcc_coeff = lpcc(s, fs, lpc_coeff.T, orderLPC)
     foundname = closestUser(lpc_coeff, codebooks)
 
     print (name+'_1.wav', ' in test matches with speaker', foundname+' in train\n')
