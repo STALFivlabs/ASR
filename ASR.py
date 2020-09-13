@@ -40,6 +40,7 @@ directory = 'test'
 
 
 no_crct=0
+no_crct_c=0
 for name in names:
     fname = '\\' + name + '_1.wav' 
     print ('Now ', name+'\'s test features are being tested')
@@ -47,12 +48,17 @@ for name in names:
     lpc_coeff = lpc(s, fs, orderLPC)
     lpcc_coeff = lpcc(s, fs, lpc_coeff.T, orderLPC)
     foundname = closestUser(lpc_coeff, codebooks)
-
-    print (name+'_1.wav', ' in test matches with speaker', foundname+' in train\n')
+    foundname_c = closestUser(lpcc_coeff, codebooks)
+    print (name+'_1.wav', ' in test matches with speaker', foundname+' in train (LPC) \n')
     if(name == foundname):
         no_crct+=1
+    print (name+'_1.wav', ' in test matches with speaker', foundname_c+' in train (LPCC) \n')
+    if(name == foundname_c):
+        no_crct_c+=1
 
 #RESULT
 print("RESULT\n")
 accuracy = (no_crct/len(codebooks.keys()))*100
-print("Accuracy: ",accuracy, "%")
+print("Accuracy (LPC): ",accuracy, "%")
+accuracy_c = (no_crct_c/len(codebooks.keys()))*100
+print("Accuracy (LPCC): ",accuracy_c, "%")
