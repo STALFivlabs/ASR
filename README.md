@@ -39,6 +39,6 @@ On a database size of 4 speakers, the LPC and LPCC algorithms have observed 100%
 
 **Demonstration**
 
-Here's a simple demonstration of the code at run time in .gif format.
+Here's a simple demonstration of the code at run time.
 
 > ![](asrdemo.mp4)
