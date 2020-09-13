@@ -11,17 +11,17 @@ def train(no_filtbank, orderLPC, name, no_centroids, model_type):
 
     fname = '\\' + name + '_2.wav'
     print ("Now", name+"\'s features are being trained")
-    (fs,s) = read(directory + fname) #for each file, read() returns a tuple. The first one is samples/second (sample rate) and second is the actual data read from the audio file
+    (fs,s) = read(directory + fname) #for each file, read() returns a tuple. fs is samples/second (sample rate) and s is the actual signal data read from the audio file
     if(model_type=='lpc'):
         coeff = lpc(s, fs, orderLPC)
     elif(model_type=='lpcc'):
         lpc_coeff = lpc(s, fs, orderLPC)
         coeff = lpcc(lpc_coeff)
     else:
-        print("Invalid model type! Model type should be 'mfcc' or 'lpc'.")
+        print("Invalid model type! Model type should be 'lpcc' or 'lpc'.")
         exit()
         
-    codebook = lbg_codebook(coeff, no_centroids) #features passed to lbg are the LPC for current speaker.
-    print ("Training complete\n")
+    codebook = lbg_codebook(coeff, no_centroids) #features passed to lbg are the LPC/LPCC coefficients for current speaker.
+    print ("Training for " + name + " complete.\n")
 
     return codebook
