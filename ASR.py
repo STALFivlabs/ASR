@@ -32,6 +32,7 @@ codebooks = {}
 print("TRAINING\n")
 for name in names:
     codebooks[name] = train(no_filtbank, orderLPC, name, 2*len(names), 'lpc')
+print("End of training\n")
 
 #COMPARISON
 print("COMPARISON\n")
