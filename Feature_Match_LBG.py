@@ -61,7 +61,7 @@ def lbg_codebook(fvs, M):
       for i in range(no_centroids):
         codebook[i] = np.mean(fvs[np.where(nearestcentroidID == i)], axis = 0)
  
-      no_codebook = np.nan_to_num(codebook) #Replace all non-number values with 0
+      codebook = np.nan_to_num(codebook) #Replace all non-number values with 0
       
       Distance = EuclideanDistance(fvs, codebook)
       newDistance = np.mean(Distance)
