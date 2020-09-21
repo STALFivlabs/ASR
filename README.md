@@ -29,7 +29,7 @@ This code has been developed and tested well in Windows in the Python IDLE envir
 
 ### Results
 
-On a database size of 4 speakers, the LPC and LPCC algorithms have observed 100% and 25% accuracy respectively. However, it is expected to decrease with more number of samples.
+On a database size of 4 speakers, the LPC and LPCC algorithms have observed 100% and upto 50% accuracy respectively. However, it is expected to decrease with more number of samples.
 
 **References**
 - LPC [literature](http://www.practicalcryptography.com/miscellaneous/machine-learning/tutorial-cepstrum-and-lpccs/)
