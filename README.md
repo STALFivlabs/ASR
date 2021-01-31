@@ -42,4 +42,4 @@ On a database size of 4 speakers, the LPC and LPCC algorithms have observed 100%
 
 Here's a simple demonstration of the code at run time.
 
-> ![](asrdemo.mp4)
+> ![](asrdemo.gif)
