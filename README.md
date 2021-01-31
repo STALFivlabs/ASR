@@ -36,6 +36,7 @@ On a database size of 4 speakers, the LPC and LPCC algorithms have observed 100%
 - Auto Correlation technique was taken [from here](https://www.philippe-fournier-viger.com/spmf/TimeSeriesAutocorellation.php)
 - K-means clustering [reference](https://www.youtube.com/watch?v=1XqG0kaJVHY&feature=youtu.be)
 - This is our reference [code flow](https://ccrma.stanford.edu/~orchi/Documents/speaker_recognition_report.pdf)
+- Additional reference papers can found [here](./Reference Papers/)
 
 **Demonstration**
 
