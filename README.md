@@ -20,7 +20,7 @@ This code has been developed and tested well in Windows in the Python IDLE envir
 ### Instructions
 
 - Download our GitHub repository from [here](https://github.com/STALFivlabs/ASR). Run the _ASR.py_ file as is.
-- To add your own sample, record two seperate voice recordings directly in .wav file format (dont convert it from one type to .wav). Store these two recordings in the test and train folders with the naming convention. Then modify the _names_ list in the _ASR.py_ file accordingly.
+- To add your own sample, record two seperate voice recordings directly in .wav file format (don't convert it from one type to .wav). Store these two recordings in the test and train folders with the naming convention. Then modify the _names_ list in the _ASR.py_ file accordingly.
 
 >**Special Notes**
 > - To fix the warning of a singular matrix whose determinant is zero, we have modified it to peform calculations on pseudo inverse (pinv). Additionally, we have set _r[k][0] = 0.0001_ due to NaN issues coupled with the previous warning.
